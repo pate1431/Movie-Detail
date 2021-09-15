@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>View TVSHOWS</title>
+<script src="../static/js/script.js" th:src="@{/js/script.js}"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+</head>
+<body>
+	
+	<h1 style="text-align: center"><kbd>TVSHOWS</kbd></h1>
+
+	<table class="table table-stripped">
+	<tr>
+		<th><h2>Shows &nbsp  Likes &nbsp Dislikes</h2></th>
+	</tr>
+	<tr>
+		<td>
+			<h3 th:each="tv: ${tvshowsList}">
+				<a 
+					href="#"
+					th:onclick="'getTvshows('+ ${tv.id}+')'"
+					th:text="${tv.showName}"
+				></a> &nbsp &nbsp &nbsp
+				<a href="#" 
+					th:onclick="'getlikes('+ ${tv.id}+')'"
+					th:text="${tv.likes}"
+					th:id="'tvshowsLikes' +${tv.id}"
+				> </a> &nbsp &nbsp &nbsp &nbsp &nbsp	
+				<a href="#" 
+					th:onclick="'getdislike('+ ${tv.id}+')'"
+					th:text="${tv.dislikes}"
+					th:id="'tvshowsDislikes' +${tv.id}"
+				> </a>		
+				<div th:id="'tvshows' +${tv.id}"></div>
+			</h3>
+		</td>
+	</tr>
+	</table>
+
+</body>
+</html>
