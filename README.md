@@ -1,1 +1,1 @@
-# MOvie Detail
+# Movie Detail
